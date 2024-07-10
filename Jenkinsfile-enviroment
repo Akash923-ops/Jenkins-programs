@@ -4,6 +4,9 @@ pipeline{
     environment{
         APP = 'frontend'
         DB_URL = '192.162.28.24'
+        BRANCH = 'main'
+        GRET-ID = 'git-id'
+        GIT_URL = 'https://github.com/Akash923-ops/my-devops-2024.git'
     }
      stages{
         stage('environment variable'){
@@ -14,5 +17,13 @@ pipeline{
             sh "echo ${app}"
         }
      }
-}
+      stage('checkout'){
+        steps{
+            git branch: "${env.BRANCH}" 
+            credentialsId: "${env.GRET-ID}"
+             url: "${env.GIT_URL}"
+            }
+        }
+
+      }
 }
