@@ -1,35 +1,34 @@
-pipeline{
+  pipeline{
     agent any
     environment{
-        BRANCH = 'main'
+       BRANCH = 'main'
     }
     stages{
-      stage('checkout'){
+      stage('checkout1'){
         steps{
-             checkout scmGit(branches: [[name: "${env.BRANCH}"]], 
+            checkout scmGit(branches: [[name: "${env.BRANCH}"]], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
         url: 'https://github.com/Akash923-ops/my-devops-2024.git']])
-
         }
       }
-       stage('build main'){
-        when{
-            environment name: BRANCH, value: main
-        }
-        steps{
-
-         echo "building the app from main branch"
-         sh 'ls -lrt'
-        }
-       }
-          stage('build dev'){
-            when{
-                 environment name: BRANCH, value: dev
-            }
-             steps{
-                echo "build the app from dev branch"
-                sh 'ls -lrt'
-             }
+      stage('build main'){
+          when{
+             environment name: BRANCH, value: main
           }
-}
-}
+          steps{
+              echo "build main"
+              sh 'ls -lrt'
+          }
+           stage('build dev'){
+          when{
+             environment name: BRANCH, value: dev
+      }
+        steps{
+            echo "build dev"
+            sh 'ls -lrt'
+        }
+
+    }
+  }
+      }
+  }
