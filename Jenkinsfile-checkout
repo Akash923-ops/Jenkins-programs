@@ -6,12 +6,12 @@ pipeline{
                 git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git'
             }
         }
-        stage('build1'){
+        stage('build'){
             steps{
                 sh 'ls -lrt'
             }
         }
-        stage('build2'){
+        stage('build1'){
             steps{
                 sh 'ls -lrt'
             }
