@@ -1,12 +1,12 @@
 pipeline{
     agent any
 
-    enviroment{
+    environment{
         APP = 'frontend'
         DB_URL = '34.12.3.45'
     }
      stages{
-        stage('enviroment'){
+        stage('enviroment variable'){
             steps{
                 script{
                 echo "${env.APP}: ${env.BD_URL}"
