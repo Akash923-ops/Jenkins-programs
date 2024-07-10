@@ -13,7 +13,9 @@ pipeline{
         }
          stage('Code checkout with checkout'){
             steps{
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git']])
+        checkout scmGit(branches: [[name:'dev']], 
+        extensions: [], userRemoteConfigs: [[credentialsId: 'git-id', 
+        url: 'https://github.com/Akash923-ops/my-devops-2024.git']])
             }
          }
 
