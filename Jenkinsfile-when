@@ -3,6 +3,7 @@ pipeline{
     environment{
         BRANCH = 'main'
     }
+    stages{
       stage('checkout'){
         steps{
              checkout scmGit(branches: [[name: "${env.BRANCH}"]], 
@@ -30,4 +31,5 @@ pipeline{
                 sh 'ls -lrt'
              }
           }
+}
 }
