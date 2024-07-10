@@ -6,7 +6,7 @@ pipeline{
                 git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git'
             }
         }
-        stage('check file'){
+        stage('check file1'){
             steps{
                 sh 'ls -lrt'
             }
@@ -17,7 +17,7 @@ pipeline{
             }
          }
 
-        stage('check file'){
+        stage('check file2'){
             steps{
                 sh 'ls -lrt'
             }
