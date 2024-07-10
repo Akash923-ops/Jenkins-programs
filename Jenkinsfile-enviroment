@@ -3,7 +3,7 @@ pipeline{
 
     environment{
         APP = 'frontend'
-        DB_URL = '34.12.3.45'
+        DB_URL = '192.162.28.24'
     }
      stages{
         stage('enviroment variable'){
