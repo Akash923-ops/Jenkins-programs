@@ -6,12 +6,18 @@ pipeline{
                 git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git'
             }
         }
-        stage('build'){
+        stage('check file'){
             steps{
                 sh 'ls -lrt'
             }
         }
-        stage('build1'){
+         stage('Code checkout with checkout'){
+            steps{
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git']])
+            }
+         }
+
+        stage('check file'){
             steps{
                 sh 'ls -lrt'
             }
