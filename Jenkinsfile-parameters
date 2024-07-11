@@ -4,7 +4,7 @@ pipeline {
         timestamps()
          disableConcurrentBuilds(abortPrevious: true)
          buildDiscarder(logRotator(numToKeepStr: '2'))
-         ancyColor('xterm')
+        
 
        
     }
