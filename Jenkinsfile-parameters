@@ -2,6 +2,7 @@ pipeline {
     agent any
     options{
         timestamps()
+        (time: 10, unit: 'seconds')
     }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
@@ -26,6 +27,7 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+                sh 'sleep 60'
             }
         }
     }
