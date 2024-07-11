@@ -49,5 +49,17 @@ pipeline{
                     }
             }
          }
-    }
+    
+       post{
+        always{
+            echo "this will run always"
+        }
+           failure{
+            echo "when the run failure"
+           }
+            sucess{
+                echo "when the run success"
+            }
+       }
+}
 }
