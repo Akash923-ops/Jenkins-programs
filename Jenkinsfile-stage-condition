@@ -53,6 +53,7 @@ pipeline{
                post {
            always {
             echo "this will run always"
+            cleanWs()
         }
            failure {
             echo "when the run failure"
