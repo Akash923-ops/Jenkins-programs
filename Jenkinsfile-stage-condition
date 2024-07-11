@@ -50,14 +50,14 @@ pipeline{
             }
          }
     
-       post{
-        always{
+       post {
+        always {
             echo "this will run always"
         }
-           failure{
+           failure {
             echo "when the run failure"
            }
-            sucess{
+            sucess {
                 echo "when the run success"
             }
        }
