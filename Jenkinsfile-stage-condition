@@ -19,7 +19,7 @@ pipeline{
                    catch (Execption e){
                     echo "got an error"
                       echo "$e"
-                      testStatus == false
+                      testStatus = false
                    } 
                 }
          }
