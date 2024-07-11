@@ -1,4 +1,4 @@
- boolean testStatus = true
+ boolean testStatus == true
 pipeline{
     agent any
    
@@ -19,7 +19,7 @@ pipeline{
                    catch(Execption e){
                     echo "got an error"
                       echo "$e"
-                      testStatus = false
+                      testStatus == false
                    } 
                 }
          }
@@ -27,7 +27,7 @@ pipeline{
                 stage('DEPLOY'){
                      steps{
                         script{
-                        if (testStatus = true ){
+                        if (testStatus == true ){
                             echo "deploy to production"
                         }
                           else{
@@ -40,7 +40,7 @@ pipeline{
                     stage('NOTIFY'){
                         steps{
                             script{
-                        if (testStstus = false){
+                        if (testStstus == false){
                             echo "notify me"
                         }
                          else{
