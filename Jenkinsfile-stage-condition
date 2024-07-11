@@ -48,10 +48,11 @@ pipeline{
                          }
                     }
             }
-         }
+                  }
+         
     
        post {
-        always {
+           always {
             echo "this will run always"
         }
            failure {
