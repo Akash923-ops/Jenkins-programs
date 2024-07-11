@@ -40,7 +40,7 @@ pipeline{
                     stage('NOTIFY'){
                         steps{
                             script{
-                        if (testStstus == false){
+                        if (testStatus == false){
                             echo "notify me"
                         }
                          else{
