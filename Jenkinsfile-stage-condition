@@ -16,7 +16,7 @@ pipeline{
                     sh 'sleep 5'
                     sh 'exit 1'
                 }
-                   catch(Execption e){
+                   catch (Execption e){
                     echo "got an error"
                       echo "$e"
                       testStatus == false
