@@ -1,0 +1,53 @@
+ boolean testStstus = true
+pipeline{
+    agent any
+   
+    stages{
+        stage('BUILD'){
+            steps{
+                echo "compile and build"
+            }
+        }
+         stage('TEST'){
+            steps{
+                script{
+                try{
+                    echo "execute the test"
+                    sh 'sleep 5'
+                    sh 'exit 1'
+                }
+                   catch(Execption e){
+                    echo "got an error"
+                      echo "$e"
+                      testStstus = false
+                   } 
+                }
+         }
+         }
+                stage('DEPLOY'){
+                     steps{
+                        script{
+                        if (testStstus = true ){
+                            echo "deploy to production"
+                        }
+                          else{
+                            echo "skip the deploy"
+                          }
+                        
+                     }
+                }
+                }
+                    stage('NOTIFY'){
+                        steps{
+                            script{
+                        if (testStstus = false){
+                            echo "notify me"
+                        }
+                         else{
+                            echo "skip the notify"
+                         }
+                    }
+            }
+         }
+    }
+}
