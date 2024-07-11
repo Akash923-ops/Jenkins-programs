@@ -61,9 +61,6 @@ pipeline{
             sucess {
                 echo "when the run success"
             }
-            unstable {
-                 echo "the application is unstable"
             }
        }
-}
 }
