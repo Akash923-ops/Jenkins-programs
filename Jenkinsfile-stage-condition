@@ -27,7 +27,7 @@ pipeline{
                 stage('DEPLOY'){
                      steps{
                         script{
-                        if (testStstus = true ){
+                        if (testStatus = true ){
                             echo "deploy to production"
                         }
                           else{
