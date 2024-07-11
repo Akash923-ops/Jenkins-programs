@@ -55,7 +55,7 @@ pipeline{
            failure {
             echo "when the run failure"
            }
-            sucess {
+            success {
                 echo "when the run success"
                   }
          
