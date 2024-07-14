@@ -19,7 +19,7 @@ pipeline{
             steps{
                 sh '''
                     cd ./Calculator.app
-                    mvn build war file
+                    mvn pckage
                 '''
             
           }
@@ -28,12 +28,12 @@ pipeline{
               steps{
                 sh '''
                    cd ./Calculator.app 
-                   sh mvn integration test
+                   sh mvn integration-test
                 '''
               }
           }
           
-            stage('load test'){
+            stage('load testing'){
                 steps{
                     sh '''
                        cd ./Calculator.app 
