@@ -17,26 +17,32 @@ pipeline{
        }
           stage('package'){
             steps{
-                dir('cd ./Calculator.app'){
-                 sh 'mvn build war file'
-            }
+                sh '''
+                    cd ./Calculator.app
+                    mvn build war file
+                '''
+            
           }
           }
           stage('integration testing'){
               steps{
-                dir(' cd ./Calculator.app '){
-                 sh 'mvn integration test'
+                sh '''
+                   cd ./Calculator.app 
+                   sh mvn integration test
+                '''
               }
           }
-          }
+          
             stage('load test'){
                 steps{
-                    dir(' cd ./Calculator.app '){
-                      sh 'mvn verify'
+                    sh '''
+                       cd ./Calculator.app 
+                        mvn verify
+                     '''
                 }
             }
             }
                
 
   }
- }
+ 
