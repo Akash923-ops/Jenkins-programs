@@ -9,23 +9,32 @@ pipeline{
     }
        stage('unit test'){
           steps{
-              sh 'mvn test'
+              sh '''
+                  cd ./Calculator.app 
+                  mvn test
+                  '''
           }
        }
           stage('package'){
             steps{
+                dir('cd ./Calculator.app'){
                  sh 'mvn build war file'
             }
           }
+          }
           stage('integration testing'){
               steps{
+                dir(' cd ./Calculator.app '){
                  sh 'mvn integration test'
               }
           }
+          }
             stage('load test'){
                 steps{
+                    dir(' cd ./Calculator.app '){
                       sh 'mvn verify'
                 }
+            }
             }
                
 
