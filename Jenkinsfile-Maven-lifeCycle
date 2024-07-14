@@ -9,7 +9,7 @@ pipeline{
               
           }
     }
-       stege('unit test'){
+       stage('unit test'){
           steps{
               sh 'mvn test'
           }
