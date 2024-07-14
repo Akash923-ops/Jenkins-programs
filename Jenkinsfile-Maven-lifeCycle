@@ -10,7 +10,7 @@ pipeline{
        stage('unit test'){
           steps{
               sh '''
-                  cd ./Calculator.app 
+                  cd ./calculator_app 
                   mvn test
                   '''
           }
@@ -18,7 +18,7 @@ pipeline{
           stage('integration testing'){
               steps{
                 sh '''
-                   cd ./Calculator.app 
+                   cd ./calculator_app 
                    mvn clean integration-test
                 '''
               }
@@ -27,7 +27,7 @@ pipeline{
             stage('load testing'){
                 steps{
                     sh '''
-                       cd ./Calculator.app 
+                       cd ./calculator_app 
                         mvn clean verify
                      '''
                 }
