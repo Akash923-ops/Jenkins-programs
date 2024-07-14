@@ -15,20 +15,11 @@ pipeline{
                   '''
           }
        }
-          stage('package1'){
-            steps{
-                sh '''
-                    cd ./Calculator.app
-                    mvn package
-                '''
-            
-          }
-          }
           stage('integration testing'){
               steps{
                 sh '''
                    cd ./Calculator.app 
-                   sh mvn integration-test
+                   mvn clean integration-test
                 '''
               }
           }
@@ -37,11 +28,11 @@ pipeline{
                 steps{
                     sh '''
                        cd ./Calculator.app 
-                        mvn verify
+                        mvn clean verify
                      '''
                 }
             }
-            }
+  }
                
 
   }
