@@ -15,11 +15,11 @@ pipeline{
                   '''
           }
        }
-          stage('package'){
+          stage('package1'){
             steps{
                 sh '''
                     cd ./Calculator.app
-                    mvn pckage
+                    mvn package
                 '''
             
           }
