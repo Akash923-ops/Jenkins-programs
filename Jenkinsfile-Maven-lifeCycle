@@ -14,6 +14,11 @@ pipeline{
               sh 'mvn test'
           }
        }
+          stage('package'){
+            steps{
+                 sh 'mvn build war file'
+            }
+          }
           stage('integration testing'){
               steps{
                  sh 'mvn integration test'
