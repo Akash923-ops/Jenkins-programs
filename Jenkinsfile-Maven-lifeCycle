@@ -32,6 +32,14 @@ pipeline{
                      '''
                 }
             }
+               stage('deploy tomcat10'){
+                  steps{
+                     deploy adaptars: [tomcat9(credentialsId: 'tomcat-manager',
+                     url: 'http://13.126.91.80:8080',
+                     contextpath: ./calculator
+                     war: './calculator_app /target/calculator.war')]
+                  }
+               }
   }
                
 
