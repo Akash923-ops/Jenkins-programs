@@ -6,6 +6,13 @@ pipeline{
                   git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
             }
         }
+         stage('check checkout'){
+            steps{
+                 checkout scmGit(branches: [[name: '*/main']], 
+        extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
+        url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
+            }
+         }
           stage('check file'){
             steps{
                 sh 'ls -lrt'
