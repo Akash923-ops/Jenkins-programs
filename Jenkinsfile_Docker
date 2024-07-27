@@ -1,21 +1,18 @@
 pipeline {
-     agent any
+    agent any
     stages {
-         stage('Test') {
-            agent {
-                docker { image 'maven'}
-            }  
-            steps {
-                script {
-                 checkout scmGit(branches: [[name: '*/main']], 
+        stage('code') {
+          steps {
+              checkout scmGit(branches: [[name: '*/main']], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
-        url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
-        
-        sh 'cd ./calculator_app;mvn clean test'
-            }
-            }
-         }
-          
-            }
+        url: 'https://github.com/Akash923-ops/java_app.git']])
           }
-    
+    }
+      stage {
+        steps {
+            sh 'ls -lrt'
+        }
+         
+}
+}
+}
