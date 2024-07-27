@@ -12,12 +12,12 @@ pipeline{
     }
         
         
-      stage('check'){
+      stage('test'){
         steps {
             script{
             sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn clean test'
         }
-         
+        }
 }
 stage('integration test'){
      steps{
@@ -26,6 +26,12 @@ stage('integration test'){
      }
 }
 }
+  stage('load test'){
+     steps{
+        script{
+        sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn clean verify'
+     }
+  }
 }
 }
 }
