@@ -1,0 +1,43 @@
+def docker_mvn(command){
+  sh "docker run -i --rm -w /app calculator_app:/app maven ${command}"
+                
+}
+pipeline{
+    agent any 
+    stages{
+        stage('checkout'){
+        steps{
+              checkout scmGit(branches: [[name: '*/main']], 
+        extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
+        url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
+        
+        }
+    }
+      stage('test'){
+        steps{
+            script{
+                docker_mvn('mvn test')st
+                
+        }
+      }
+}
+stage('integration test'){
+        steps{
+            script{
+                docker_mvn('mvn clean integration test')
+ 
+        }
+  
+ 
+}
+}
+stage('load test'){
+        steps{
+            script{
+                docker_mvn('mvn clean verify')
+   
+    }
+        }
+}
+    }
+}
