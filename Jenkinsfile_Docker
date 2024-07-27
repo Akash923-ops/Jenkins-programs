@@ -1,22 +1,24 @@
 pipeline{
      agent any
     stages{
-        stage('code checkout'){
-            steps{
-                  git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
-            }
-        }
          stage('check checkout'){
+            agent{
+                docker { image 'maven'}
+            }
             steps{
+                script{
                  checkout scmGit(branches: [[name: '*/main']], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
         url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
+        sh '''
+         cd ./calculator_app
+         mvn clean test
+         ls -lrt
+         '''
+            }
             }
          }
-          stage('check file'){
-            steps{
-                sh 'ls -lrt'
+          
             }
           }
-    }
-}
+    
