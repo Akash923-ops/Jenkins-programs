@@ -1,11 +1,11 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage('code') {
+    stages{
+        stage('test'){
             agent {
                 docker { image 'maven'}
             }
-            script {
+            script{
           steps {
               checkout scmGit(branches: [[name: '*/main']], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
