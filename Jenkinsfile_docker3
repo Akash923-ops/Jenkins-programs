@@ -1,5 +1,5 @@
 def docker_mvn(command){
-  sh "docker run -i --rm -w /app calculator_app:/app maven ${command}"
+  sh "docker run -i --rm -w /app -v calculator_app:/app maven ${command}"
                 
 }
 pipeline{

@@ -1,0 +1,49 @@
+def docker_maven(command){
+                     sh "docker run -i --rm -w /app -v /calculator_app:/app maven ${command}"
+}
+pipeline{
+    agent any
+    stages{
+        stage('code'){
+            steps{
+                      checkout scmGit(branches: [[name: '*/main']], 
+        extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
+        url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
+        
+            }
+        }
+          stage('code checkout'){
+    
+                agent {
+                    image 'maven'
+                }
+                steps{
+                script{
+                                checkout scmGit(branches: [[name: '*/main']], 
+        extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
+        url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
+        sh '''
+        cd ./calculator_app
+        mvn test
+        '''
+          
+                  
+            }
+          }
+    }
+        stage('test'){
+             steps{
+                script{
+                sh 'docker run -i --rm -w /app -v /calculator_app:/app maven mvn test'
+             }
+        }
+        }
+         stage('test1'){
+             steps{
+                script{
+                      docker_maven('mvn test')
+                }
+             }
+         }
+}
+}
