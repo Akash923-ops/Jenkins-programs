@@ -2,6 +2,9 @@ pipeline {
     agent any
     stages {
         stage('code') {
+            agent {
+                docker { image 'maven'}
+            }
             script {
           steps {
               checkout scmGit(branches: [[name: '*/main']], 
