@@ -2,10 +2,10 @@ pipeline{
     agent any
     stages{
         stage('test'){
-            agent {
+            agent{
                 docker { image 'maven'}
             }
-            script{
+    
           steps {
               checkout scmGit(branches: [[name: '*/main']], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
@@ -13,7 +13,7 @@ pipeline{
         sh 'cd ./calculator_app;mvn clean test'
           }
     }
-        }
+        
       stage('check'){
         steps {
             sh 'ls -lrt'
