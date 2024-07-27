@@ -6,13 +6,15 @@ pipeline{
                 docker { image 'maven'}
             }
     
-          steps {
+          steps{
+            script{
               checkout scmGit(branches: [[name: '*/main']], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
         url: 'https://github.com/Akash923-ops/Jenkins-programs.git']])
         sh 'cd ./calculator_app;mvn clean test'
           }
     }
+        }
         
       stage('check'){
         steps {
