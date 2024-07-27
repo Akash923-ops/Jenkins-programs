@@ -1,4 +1,4 @@
-def docker_mvn(command){
+def docker_maven(command){
   sh "docker run -i --rm -w /app -v calculator_app:/app maven ${command}"
                 
 }
