@@ -8,7 +8,7 @@ pipeline {
         url: 'https://github.com/Akash923-ops/java_app.git']])
           }
     }
-      stage {
+      stage('check'){
         steps {
             sh 'ls -lrt'
         }
