@@ -15,7 +15,9 @@ pipeline{
           stage('code checkout'){
     
                 agent {
+                    docker{
                     image 'maven'
+                }
                 }
                 steps{
                 script{
