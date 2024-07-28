@@ -33,17 +33,27 @@ pipeline{
                 }
             }
              stage('deploy tomcat10'){
+               input{
+                  message: "do u want to deploy tomcat10"
+                  parameters {
+                     choise(name: 'CHOISE', choises: ['yes' 'no'] description '')
+                  }
+               }
                steps{
                   script{
+                     if (CHOISE == yes){
                      deploy adapter: [tomcat9 (credentialId: 'tomcat-manager',
                      url: 'http://65.0.131.162:8080/manager/html',
                      contextpath: '/calculator',
                      war: '/calculator_app/target/calculator.war')]
+                  }
+                  else {
+                     echo "skiping deployment"
                   }
                }
              }
               
                   }
                }
-  
+}
  
