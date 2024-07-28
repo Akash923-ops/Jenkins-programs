@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Code checkout with git'){
             steps{
-                git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git'
+                git branch'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/my-devops-2024.git': 
             }
         }
         stage('check file1'){
