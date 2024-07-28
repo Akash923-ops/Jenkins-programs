@@ -1,11 +1,12 @@
 pipeline{
     agent any
     stages{
-        stage('code'){
+        stage('checkout'){
             steps{
                     checkout scmGit(branches: [[name: '*/main']], 
         extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
-        url: 'https://github.com/Akash923-ops/Jenkins-programs.git']]) 
+        url: 'https://github.com/Akash923-ops/java_app.git']]) 
+        sh 'cd ./calculator_app'
             }
         }
          stage('test'){
