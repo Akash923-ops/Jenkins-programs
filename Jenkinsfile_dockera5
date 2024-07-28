@@ -7,6 +7,9 @@ pipeline{
  extensions: [], userRemoteConfigs: [[credentialsId: 'git_up',
   url: 'https://github.com/Akash923-ops/java_app.git']])
                
+               sh '''
+               cd ./calculator_app
+               '''
             }
             }
         
