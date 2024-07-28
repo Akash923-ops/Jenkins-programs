@@ -32,9 +32,9 @@ pipeline{
                      '''
                 }
             }
-             stage('deploy tomcat10'){
-               input{
-                  message: "do u want to deploy tomcat10"
+             stage('deploy_tomcat10'){
+               input {
+                  message "do u want to deploy tomcat10"
                   parameters {
                      choice(name: 'DEPLOY_CHOICE', choices: ['yes','no'])
                   }
