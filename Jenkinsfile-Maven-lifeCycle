@@ -36,7 +36,7 @@ pipeline{
                input{
                   message: "do u want to deploy tomcat10"
                   parameters {
-                     choice(name: 'CHOICE', choices: ['yes','no'] description: '')
+                     choice(name: 'DEPLOY_CHOICE', choices: ['yes','no'])
                   }
                }
                steps{
