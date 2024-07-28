@@ -42,7 +42,7 @@ pipeline{
                steps{
                   script{
                      if (CHOICE == 'yes'){
-                     deploy adapter: [tomcat9 (credentialId: 'tomcat-manager',
+                     deploy adapter: [tomcat9 (credentialId: 'admin',
                      url: 'http://65.0.131.162:8080/manager/html',
                      contextpath: '/calculator',
                      war: '/calculator_app/target/calculator.war')]
