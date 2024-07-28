@@ -1,0 +1,13 @@
+pipeline{
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+                   git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/java_app.git'
+            }
+        }
+        stage('check'){
+            sh  'ls -lrt'
+        }
+    }
+}
