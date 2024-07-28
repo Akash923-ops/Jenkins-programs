@@ -36,12 +36,12 @@ pipeline{
                input{
                   message: "do u want to deploy tomcat10"
                   parameters {
-                     choise(name: 'CHOISE', choises: ['yes','no'] description: '')
+                     choice(name: 'CHOICE', choices: ['yes','no'] description: '')
                   }
                }
                steps{
                   script{
-                     if (CHOISE == 'yes'){
+                     if (CHOICE == 'yes'){
                      deploy adapter: [tomcat9 (credentialId: 'tomcat-manager',
                      url: 'http://65.0.131.162:8080/manager/html',
                      contextpath: '/calculator',
