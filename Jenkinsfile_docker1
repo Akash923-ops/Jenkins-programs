@@ -6,6 +6,14 @@ pipeline{
                    git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/java_app.git'
             }
         }
+        stage('check1'){
+            steps{
+                       checkout scmGit(branches: [[name: '*/main']], 
+        extensions: [], userRemoteConfigs : [[credentialsId: 'git-id', 
+        url: 'https://github.com/Akash923-ops/java_app.git']])
+            }
+        }
+        
         stage('check'){
             steps{
 
