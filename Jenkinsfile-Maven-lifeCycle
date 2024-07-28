@@ -41,7 +41,7 @@ pipeline{
                }
                steps{
                   script{
-                     if (CHOISE == yes){
+                     if (CHOISE == 'yes'){
                      deploy adapter: [tomcat9 (credentialId: 'tomcat-manager',
                      url: 'http://65.0.131.162:8080/manager/html',
                      contextpath: '/calculator',
