@@ -18,17 +18,17 @@ pipeline{
         }
         }
 }
-stage('integration test'){
+stage('integration-test'){
      steps{
         script{
-         sh 'docker run -it --rm -w /app -v calculator_app:/app maven mvn integration test'
+         sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn integration test'
      }
 }
 }
   stage('load test'){
      steps{
         script{
-        sh 'docker run -it --rm -w /app -v calculator_app:/app maven mvn clean verify'
+        sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn clean verify'
      }
   }
 }
