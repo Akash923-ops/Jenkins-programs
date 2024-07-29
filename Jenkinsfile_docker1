@@ -14,8 +14,12 @@ pipeline{
         stage('check'){
             steps{
 
-            sh  'ls -lrt'
+            
+            dir ('./calculator_app'){
+            sh 'ls -lrt'
+            
         }
     }
     }
+}
 }
