@@ -15,7 +15,7 @@ pipeline{
             steps{
 
             
-            dir ('./calculator_app'){
+            dir ('./calculator_app') {
             sh 'ls -lrt'
             sh 'docker build -t akash446/main .'
             
