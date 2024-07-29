@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                   git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/java_app.git'
+                git branch: 'masin', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/java_app.git'
             }
         }
      
