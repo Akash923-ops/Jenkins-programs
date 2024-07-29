@@ -8,7 +8,7 @@ pipeline{
         stage('Checkout'){
         steps{
          checkout scmGit(branches: [[name: '*/main']], 
- extensions: [], userRemoteConfigs: [[credentialsId: 'git_up',
+ extensions: [], userRemoteConfigs: [[credentialsId: 'git-id',
   url: 'https://github.com/Akash923-ops/java_app.git']])
   sh '''
   cd ./calculator_app
