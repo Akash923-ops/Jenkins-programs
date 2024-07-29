@@ -14,7 +14,7 @@ pipeline{
       stage('Test'){
         steps{
             script{
-            sh 'docker run -it --rm -w /app -v calculator_app:/app maven mvn clean test'
+            sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn clean test'
         }
         }
 }
