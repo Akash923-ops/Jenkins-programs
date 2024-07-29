@@ -1,4 +1,4 @@
-def docker_maven(command){
+def docker_mvn(command){
   sh "docker run -i --rm -w /app -v calculator_app:/app maven ${command}"
                 
 }
@@ -10,9 +10,7 @@ pipeline{
          checkout scmGit(branches: [[name: '*/main']], 
  extensions: [], userRemoteConfigs: [[credentialsId: 'git-id',
   url: 'https://github.com/Akash923-ops/java_app.git']])
-  sh '''
-  cd ./calculator_app
-  '''
+  
         
         }
     }
@@ -24,10 +22,10 @@ pipeline{
         }
       }
 }
-stage('integration test'){
+stage('integration-test'){
         steps{
             script{
-                docker_mvn('mvn clean integration test')
+                docker_mvn('mvn clean integration-test')
  
         }
   
