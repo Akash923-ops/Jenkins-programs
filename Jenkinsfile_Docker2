@@ -5,7 +5,7 @@ pipeline{
           steps{
          checkout scmGit(branches: [[name: '*/main']],
           extensions: [], userRemoteConfigs: [[credentialsId: 'git-id',
-           url: 'https://github.com/Akash923-ops/my-devops-2024.git']])
+           url: 'https://github.com/Akash923-ops/java_app.git']])
         
           }
     }
@@ -14,21 +14,21 @@ pipeline{
       stage('Test'){
         steps{
             script{
-            sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn clean test'
+            sh 'docker run -it --rm -w /app -v calculator_app:/app maven mvn clean test'
         }
         }
 }
 stage('integration test'){
      steps{
         script{
-         sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn integration test'
+         sh 'docker run -it --rm -w /app -v calculator_app:/app maven mvn integration test'
      }
 }
 }
   stage('load test'){
      steps{
         script{
-        sh 'docker run -i --rm -w /app -v calculator_app:/app maven mvn clean verify'
+        sh 'docker run -it --rm -w /app -v calculator_app:/app maven mvn clean verify'
      }
   }
 }
