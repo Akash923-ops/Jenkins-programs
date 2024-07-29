@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Check Docker') {
+            steps {
+                script {
+                    sh 'echo $PATH' // Check the PATH environment variable
+                    sh 'docker --version' // Verify Docker is available
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t my-java-app .'
+                }
+            }
+        }
+        
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    sh 'docker run -d -p 8080:8080 my-java-app'
+                }
+            }
+        }
+    }
+}
