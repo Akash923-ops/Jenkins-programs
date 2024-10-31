@@ -1,0 +1,47 @@
+pipeline{
+ agent any 
+  stages{
+    stage('checkout'){
+          steps{
+         
+               git branch: 'main', credentialsId: 'git-id', url: 'https://github.com/Akash923-ops/java_app.git'
+          }
+    }
+       stage('unit test'){
+          steps{
+              sh '''
+                  cd ./calculator_app 
+                  mvn test
+                  '''
+          }
+       }
+          stage('integration testing'){
+              steps{
+                sh '''
+                   cd ./calculator_app 
+                   mvn clean integration-test
+                '''
+              }
+          }
+          
+            stage('load testing'){
+                steps{
+                    sh '''
+                       cd ./calculator_app 
+                        mvn clean verify
+                     '''
+                }
+            }
+               stage('Deploy tomcat10'){
+                  steps{
+                     deploy adapters: [tomcat9(credentialsId: 'tomcat-manager1',
+                     url: 'http://13.126.91.80:8080',
+                     contextpath: './calculator',
+                     war: './calculator_app /target/calculator.war')]
+                  }
+               }
+  }
+               
+
+}
+ 
