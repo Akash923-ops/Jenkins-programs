@@ -14,7 +14,7 @@ pipeline{
                    def config = [
                       branch: 'main',
                       credentialsId: 'gith_hub',
-                      url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
+                      url: 'https://github.com/Akash923-ops/maven.git'
                 ]
                 gitCheckout(config)
             }
