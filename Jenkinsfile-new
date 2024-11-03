@@ -5,6 +5,7 @@ pipeline{
        stages{
         stage('chek'){
             steps{
+                script{
                 def config [
                     branch: 'main',
                     credentialaId: 'gith_hub',
@@ -14,4 +15,4 @@ pipeline{
             }
         }
        }
-}
+}}
