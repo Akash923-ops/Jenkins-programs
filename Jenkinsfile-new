@@ -2,6 +2,11 @@
 
 pipeline{
     agent any
+       environment{
+        DOCKER_IMAGE_NAME= 'akash446/app'
+        DOCKER_IMAGE_TAG= 'lts'
+        DOCKER_FILE_PATH= './dockerfile'
+       }
        stages{
         stage('chek'){
             steps{
@@ -12,6 +17,19 @@ pipeline{
                       url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
                 ]
                 gitCheckout(config)
+            }
+        }
+       }
+       stage('docker build'){
+        steps{
+            script{
+                buidandpushdockerimage(
+                DOCKER_IMAGE_NAME,
+                DOCKER_IMAGE_TAG,
+                DOCKER_FILE_PATH,
+                  'docker'
+
+                )
             }
         }
        }
