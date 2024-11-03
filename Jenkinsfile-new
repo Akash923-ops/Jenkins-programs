@@ -6,10 +6,10 @@ pipeline{
         stage('chek'){
             steps{
                 script{
-                def config [
-                    branch: 'main',
-                    credentialaId: 'gith_hub',
-                    url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
+                   def config = [
+                      branch: 'main',
+                      credentialaId: 'gith_hub',
+                      url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
                 ]
                 gitCheckout(config)
             }
