@@ -24,10 +24,11 @@ pipeline{
         steps{
             script{
                 buidandpushdockerimage(
+                    'docker',
                 DOCKER_IMAGE_NAME,
                 DOCKER_IMAGE_TAG,
-                DOCKER_FILE_PATH,
-                  'docker'
+                DOCKER_FILE_PATH
+                  
 
                 )
             }
