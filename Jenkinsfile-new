@@ -8,7 +8,7 @@ pipeline{
                 script{
                    def config = [
                       branch: 'main',
-                      credentialaId: 'gith_hub',
+                      credentialsId: 'gith_hub',
                       url: 'https://github.com/Akash923-ops/Jenkins-programs.git'
                 ]
                 gitCheckout(config)
