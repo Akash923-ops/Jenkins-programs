@@ -5,7 +5,7 @@ pipeline{
        environment{
         DOCKER_IMAGE_NAME= 'akash446/app'
         DOCKER_IMAGE_TAG= 'lts'
-        DOCKER_FILE_PATH= './dockerfile'
+        DOCKER_FILE_PATH= '.Dockerfile'
        }
        stages{
         stage('chek'){
